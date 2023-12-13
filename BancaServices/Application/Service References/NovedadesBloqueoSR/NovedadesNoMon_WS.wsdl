@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:intf="http://wsdl.rbm.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://schema.rbm.com" xmlns:impl="http://wsdl.rbm.com" targetNamespace="http://wsdl.rbm.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://wsdl.rbm.com">
+      <xsd:import namespace="http://schema.rbm.com" />
+      <xsd:element name="aplicarNovedad">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="noMon_Dto" type="tns1:NovedadNoMon_Dto" />
+            <xsd:element name="usrId" type="xsd:string" />
+            <xsd:element name="usrPsw" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="aplicarNovedadResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="aplicarNovedadReturn" type="tns1:NovedadNoMon_Dto" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://schema.rbm.com">
+      <xsd:complexType name="NovedadNoMon_Dto">
+        <xsd:sequence>
+          <xsd:element name="actividadEconomica" nillable="true" type="xsd:string" />
+          <xsd:element name="afinidadTarjeta" nillable="true" type="xsd:string" />
+          <xsd:element name="bin" nillable="true" type="xsd:string" />
+          <xsd:element name="cicloFacturacion" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoEntidad" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoBancoDebitoAutomatico" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoBarras" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoBarrasConvenioMercadeo" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoBloqueoTarjeta" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoCanal" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoCiudadDireccionCorrespondencia" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoCiudadDireccionResidencial" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoDepartamentoCorrespondencia" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoDepartamentoDireccionResidencial1" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoOficinaDistribucionPlastico" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoPuntoDistribucion" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoRespuesta" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoVendedor" nillable="true" type="xsd:string" />
+          <xsd:element name="correoElectronico" nillable="true" type="xsd:string" />
+          <xsd:element name="cupoAsignado" nillable="true" type="xsd:string" />
+          <xsd:element name="descripcionRespuesta" nillable="true" type="xsd:string" />
+          <xsd:element name="direccionCorrespondenciaLinea1" nillable="true" type="xsd:string" />
+          <xsd:element name="direccionCorrespondenciaLinea2" nillable="true" type="xsd:string" />
+          <xsd:element name="direccionResidencialLinea1" nillable="true" type="xsd:string" />
+          <xsd:element name="direccionResidencialLinea2" nillable="true" type="xsd:string" />
+          <xsd:element name="estadoCivil" nillable="true" type="xsd:string" />
+          <xsd:element name="estadoRegistroRecibido" nillable="true" type="xsd:string" />
+          <xsd:element name="fechaCesacionCausacion" nillable="true" type="xsd:string" />
+          <xsd:element name="fechaNacimiento" nillable="true" type="xsd:string" />
+          <xsd:element name="fechaSolicitud" nillable="true" type="xsd:string" />
+          <xsd:element name="filler" nillable="true" type="xsd:string" />
+          <xsd:element name="grupoManejo" nillable="true" type="xsd:string" />
+          <xsd:element name="indicadorCesacionCausacion" nillable="true" type="xsd:string" />
+          <xsd:element name="indicadorDebitoAutomatico" nillable="true" type="xsd:string" />
+          <xsd:element name="indicativoCiudad" nillable="true" type="xsd:string" />
+          <xsd:element name="motivoBloqueo" nillable="true" type="xsd:string" />
+          <xsd:element name="nit" nillable="true" type="xsd:string" />
+          <xsd:element name="nombreLargo" nillable="true" type="xsd:string" />
+          <xsd:element name="nombreRealce" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroCuentaDebitoAutomatico" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroIdAmparador" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroIdentificacion" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroProductoReferenciaCruzada" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroReferencia" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroSolicitud" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroTarjetaAsignado" nillable="true" type="xsd:string" />
+          <xsd:element name="oficinaRadicacionSolicitud" nillable="true" type="xsd:string" />
+          <xsd:element name="origenIngresos" nillable="true" type="xsd:string" />
+          <xsd:element name="primerApellido" nillable="true" type="xsd:string" />
+          <xsd:element name="primerNombre" nillable="true" type="xsd:string" />
+          <xsd:element name="segundoApellido" nillable="true" type="xsd:string" />
+          <xsd:element name="segundoNombre" nillable="true" type="xsd:string" />
+          <xsd:element name="sexo" nillable="true" type="xsd:string" />
+          <xsd:element name="subtipo" nillable="true" type="xsd:string" />
+          <xsd:element name="tarjetaAnterior" nillable="true" type="xsd:string" />
+          <xsd:element name="telefonoOficina" nillable="true" type="xsd:string" />
+          <xsd:element name="telefonoResidencia" nillable="true" type="xsd:string" />
+          <xsd:element name="tipoCuenta" nillable="true" type="xsd:string" />
+          <xsd:element name="tipoCuentaDebitoAutomatico" nillable="true" type="xsd:string" />
+          <xsd:element name="tipoIdAmparador" nillable="true" type="xsd:string" />
+          <xsd:element name="tipoIdentificacion" nillable="true" type="xsd:string" />
+          <xsd:element name="tipoNovedad" nillable="true" type="xsd:string" />
+          <xsd:element name="tipoPersona" nillable="true" type="xsd:string" />
+          <xsd:element name="tipoSolicitud" nillable="true" type="xsd:string" />
+          <xsd:element name="tipoTarjeta" nillable="true" type="xsd:string" />
+          <xsd:element name="valorCuotaFija" nillable="true" type="xsd:string" />
+          <xsd:element name="zonaPostalDireccionCorrespondencia" nillable="true" type="xsd:string" />
+          <xsd:element name="zonaPostalDireccionResidencial" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="aplicarNovedadRequest">
+    <wsdl:part name="parameters" element="impl:aplicarNovedad" />
+  </wsdl:message>
+  <wsdl:message name="aplicarNovedadResponse">
+    <wsdl:part name="parameters" element="impl:aplicarNovedadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="NovedadesNoMon_WS">
+    <wsdl:operation name="aplicarNovedad">
+      <wsdl:input name="aplicarNovedadRequest" message="impl:aplicarNovedadRequest" />
+      <wsdl:output name="aplicarNovedadResponse" message="impl:aplicarNovedadResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NovedadesNoMon_WSSoapBinding" type="impl:NovedadesNoMon_WS">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="aplicarNovedad">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="aplicarNovedadRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="aplicarNovedadResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NovedadesNoMon_WSService">
+    <wsdl:port name="NovedadesNoMon_WS" binding="impl:NovedadesNoMon_WSSoapBinding">
+      <wsdlsoap:address location="http://10.231.50.10:8080/BPOWSuiteWS/services/NovedadesNoMon_WS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

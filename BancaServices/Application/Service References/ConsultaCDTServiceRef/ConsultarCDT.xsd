@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.integrator.com/" targetNamespace="http://ws.integrator.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="consultarCDT" type="tns:consultarCDT" />
+  <xs:element name="consultarCDTResponse" type="tns:consultarCDTResponse" />
+  <xs:element name="consultarDetalleCDT" type="tns:consultarDetalleCDT" />
+  <xs:element name="consultarDetalleCDTResponse" type="tns:consultarDetalleCDTResponse" />
+  <xs:element name="responseConsultaSaldoCDTBean" type="tns:responseConsultaSaldoCDTBean" />
+  <xs:complexType name="consultarDetalleCDT">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="numProducto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="consultarDetalleCDTResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:responseConsultaDetalleCDTBean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseConsultaDetalleCDTBean">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="cuentas" type="tns:beanConsultaDetalleCDT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="beanConsultaDetalleCDT">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="valorCDT" type="xs:string" />
+      <xs:element minOccurs="0" name="duracion" type="xs:string" />
+      <xs:element minOccurs="0" name="frecuenciaPagoInteres" type="xs:string" />
+      <xs:element minOccurs="0" name="tasaNominal" type="xs:string" />
+      <xs:element minOccurs="0" name="valorInteres" type="xs:string" />
+      <xs:element minOccurs="0" name="valorInteresNeto" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaVencimiento" type="xs:string" />
+      <xs:element minOccurs="0" name="modalidadInteres" type="xs:string" />
+      <xs:element minOccurs="0" name="proximaCuotaIneteres" type="xs:string" />
+      <xs:element minOccurs="0" name="tasaEfectiva" type="xs:string" />
+      <xs:element minOccurs="0" name="valorRetencion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="consultarCDT">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idClienete" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="consultarCDTResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:responseConsultaSaldoCDTBean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseConsultaSaldoCDTBean">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="cuentas" type="tns:beanConsultaSaldoCDT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="beanConsultaSaldoCDT">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idCliente" type="xs:string" />
+      <xs:element minOccurs="0" name="referencia" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroCuenta" type="xs:string" />
+      <xs:element minOccurs="0" name="saldo" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaEmision" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

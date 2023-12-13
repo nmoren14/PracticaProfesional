@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.integrator.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="ConsultarCDT" targetNamespace="http://ws.integrator.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://10.231.20.117:8082/Genesys/ConsultarCDT?xsd=1" namespace="http://ws.integrator.com/" />
+    </xsd:schema>
+  </types>
+  <message name="consultarCDT">
+    <part name="parameters" element="tns:consultarCDT" />
+  </message>
+  <message name="consultarCDTResponse">
+    <part name="parameters" element="tns:consultarCDTResponse" />
+  </message>
+  <message name="consultarDetalleCDT">
+    <part name="parameters" element="tns:consultarDetalleCDT" />
+  </message>
+  <message name="consultarDetalleCDTResponse">
+    <part name="parameters" element="tns:consultarDetalleCDTResponse" />
+  </message>
+  <portType name="ConsultarCDT">
+    <operation name="consultarCDT">
+      <input wsam:Action="http://ws.integrator.com/ConsultarCDT/consultarCDTRequest" message="tns:consultarCDT" />
+      <output wsam:Action="http://ws.integrator.com/ConsultarCDT/consultarCDTResponse" message="tns:consultarCDTResponse" />
+    </operation>
+    <operation name="consultarDetalleCDT">
+      <input wsam:Action="http://ws.integrator.com/ConsultarCDT/consultarDetalleCDTRequest" message="tns:consultarDetalleCDT" />
+      <output wsam:Action="http://ws.integrator.com/ConsultarCDT/consultarDetalleCDTResponse" message="tns:consultarDetalleCDTResponse" />
+    </operation>
+  </portType>
+  <binding name="ConsultarCDTPortBinding" type="tns:ConsultarCDT">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="consultarCDT">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="consultarDetalleCDT">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ConsultarCDT">
+    <port name="ConsultarCDTPort" binding="tns:ConsultarCDTPortBinding">
+      <soap:address location="http://10.231.20.117:8082/Genesys/ConsultarCDT" />
+    </port>
+  </service>
+</definitions>

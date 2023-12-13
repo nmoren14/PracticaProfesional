@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ProcessDataStruct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="data" type="tns:InputData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InputData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="encab_mensajeria_ATH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo_Registro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Canal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cod_aplica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario_loguiado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha_hoy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jornada" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hora_inicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="terminal_nro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nro_identificacion_cliente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ultimo_encargo_recibido" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProcessDataStructResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessDataStructResult" type="tns:OutputData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OutputData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="encab_mensajeria_ATH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipo_registro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cod_validacion_fiduoccidente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cod_validacion_inf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre_cliente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nro_ocurrencias" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo_fondo_inversion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cod_ofic_const_encargo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nro_encargo_fiduciario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fecha_ultimo_cierre_fondo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Saldo_disponible_en_pesos_encargo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cod_ent_bancaria_cliente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nro_cuenta_bancaria_cliente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="vlr_unidad_fondo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Saldo_en_unidades_del_fideicomiso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Saldo_total_en_pesos_encargo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetInputXmlFormat">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetInputXmlFormatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInputXmlFormatResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOutputXmlFormat">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOutputXmlFormatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOutputXmlFormatResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="s" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataStruct2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="data" type="tns:InputData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataStruct2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessDataStruct2Result" type="tns:ArrayOfOutputData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOutputData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OutputData" nillable="true" type="tns:OutputData" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ProcessDataStructSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessDataStruct" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataStructSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataStructResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInputXmlFormatSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInputXmlFormat" />
+  </wsdl:message>
+  <wsdl:message name="GetInputXmlFormatSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInputXmlFormatResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOutputXmlFormatSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOutputXmlFormat" />
+  </wsdl:message>
+  <wsdl:message name="GetOutputXmlFormatSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOutputXmlFormatResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessData" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataStruct2SoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessDataStruct2" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataStruct2SoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataStruct2Response" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="ProcessDataStruct">
+      <wsdl:input message="tns:ProcessDataStructSoapIn" />
+      <wsdl:output message="tns:ProcessDataStructSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInputXmlFormat">
+      <wsdl:input message="tns:GetInputXmlFormatSoapIn" />
+      <wsdl:output message="tns:GetInputXmlFormatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutputXmlFormat">
+      <wsdl:input message="tns:GetOutputXmlFormatSoapIn" />
+      <wsdl:output message="tns:GetOutputXmlFormatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <wsdl:input message="tns:ProcessDataSoapIn" />
+      <wsdl:output message="tns:ProcessDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataStruct2">
+      <wsdl:input message="tns:ProcessDataStruct2SoapIn" />
+      <wsdl:output message="tns:ProcessDataStruct2SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessDataStruct">
+      <soap:operation soapAction="http://tempuri.org/ProcessDataStruct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInputXmlFormat">
+      <soap:operation soapAction="http://tempuri.org/GetInputXmlFormat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutputXmlFormat">
+      <soap:operation soapAction="http://tempuri.org/GetOutputXmlFormat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataStruct2">
+      <soap:operation soapAction="http://tempuri.org/ProcessDataStruct2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessDataStruct">
+      <soap12:operation soapAction="http://tempuri.org/ProcessDataStruct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInputXmlFormat">
+      <soap12:operation soapAction="http://tempuri.org/GetInputXmlFormat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutputXmlFormat">
+      <soap12:operation soapAction="http://tempuri.org/GetOutputXmlFormat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap12:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataStruct2">
+      <soap12:operation soapAction="http://tempuri.org/ProcessDataStruct2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://172.16.81.40:23032/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://172.16.81.40:23032/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.rpc.saml.computec.com/" name="ComputecSTSService" targetNamespace="http://ws.rpc.saml.computec.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="ComputecSTSService_schema1.xsd" namespace="http://ws.rpc.saml.computec.com/" />
+    </xsd:schema>
+  </types>
+  <message name="Exception">
+    <part name="fault" element="tns:Exception" />
+  </message>
+  <message name="obtenerToken">
+    <part name="user" type="xsd:string" />
+    <part name="password" type="xsd:string" />
+  </message>
+  <message name="obtenerTokenResponse">
+    <part name="return" type="xsd:string" />
+  </message>
+  <portType name="ComputecSTSDelegate">
+    <operation name="obtenerToken" parameterOrder="user password">
+      <input message="tns:obtenerToken" />
+      <output message="tns:obtenerTokenResponse" />
+      <fault name="Exception" message="tns:Exception" />
+    </operation>
+  </portType>
+  <binding name="ComputecSTSPortBinding" type="tns:ComputecSTSDelegate">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="obtenerToken">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.rpc.saml.computec.com/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.rpc.saml.computec.com/" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="ComputecSTSService">
+    <port name="ComputecSTSPort" binding="tns:ComputecSTSPortBinding">
+      <soap:address location="http://172.24.13.74:9081/WSSAMLRPC/ComputecSTSService" />
+    </port>
+  </service>
+</definitions>

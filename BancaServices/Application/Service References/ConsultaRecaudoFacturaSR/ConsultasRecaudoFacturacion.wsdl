@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.integrator.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="ConsultasRecaudoFacturacion" targetNamespace="http://ws.integrator.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://10.231.20.117:8083/Genesys/ConsultasRecaudoFacturacion?xsd=1" namespace="http://ws.integrator.com/" />
+    </xsd:schema>
+  </types>
+  <message name="ListarPrestamos">
+    <part name="parameters" element="tns:RequestCuentasPorCobrar" />
+  </message>
+  <message name="ListarPrestamosResponse">
+    <part name="parameters" element="tns:ListarPrestamosResponse" />
+  </message>
+  <portType name="ConsultasRecaudoFacturacion">
+    <operation name="ListarPrestamos">
+      <input wsam:Action="http://ws.integrator.com/ConsultasRecaudoFacturacion/ListarPrestamosRequest" message="tns:ListarPrestamos" />
+      <output wsam:Action="http://ws.integrator.com/ConsultasRecaudoFacturacion/ListarPrestamosResponse" message="tns:ListarPrestamosResponse" />
+    </operation>
+  </portType>
+  <binding name="ConsultasRecaudoFacturacionPortBinding" type="tns:ConsultasRecaudoFacturacion">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="ListarPrestamos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ConsultasRecaudoFacturacion">
+    <port name="ConsultasRecaudoFacturacionPort" binding="tns:ConsultasRecaudoFacturacionPortBinding">
+      <soap:address location="http://10.231.20.117:8083/Genesys/ConsultasRecaudoFacturacion" />
+    </port>
+  </service>
+</definitions>

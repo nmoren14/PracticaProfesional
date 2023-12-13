@@ -1,0 +1,72 @@
+variables:
+  ServiceName: BancaServices
+
+trigger:
+  - main
+  - dev
+  - dev/*
+  - qa
+  - qa/*
+
+name: $(date:yyyyMMdd)$(rev:.r)
+
+resources:
+  repositories:
+    - repository: template
+      type: git
+      name: DevOps/_git/DevOps
+      ref: 'refs/heads/trunk'
+stages:
+  - stage: dev
+    condition: |
+      or(
+        startsWith(variables['build.sourceBranch'], 'refs/heads/FT-'),
+        startsWith(variables['build.sourceBranch'], 'refs/heads/dev'),
+        in(variables['System.PullRequest.TargetBranch'], 'refs/heads/dev')
+      )  
+    jobs:
+    - job: Linux
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+      - template: templates/build_NETCORE-6_v1.yml@template  # Template reference
+      - template: templates/prueba_owasp_sast.yml@template  # Template reference
+      - script: |
+          echo "##vso[task.setvariable variable=DOTNET_STARTUP_ASSEMBLY]$(MSBuildProjectName).dll"
+        displayName: 'Set DOTNET_STARTUP_ASSEMBLY'
+  - stage: qa
+    condition: |
+      or(
+        startsWith(variables['build.sourceBranch'], 'refs/heads/bugfix'),
+        startsWith(variables['build.sourceBranch'], 'refs/heads/qa'),
+        startsWith(variables['System.PullRequest.TargetBranch'], 'refs/heads/qa'),
+        startsWith(variables['Build.SourceBranchName'], 'qa')
+      )  
+    jobs:
+    - job: Linux
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+      - template: templates/build_NETCORE-6_v1.yml@template  # Template reference
+      - template: templates/prueba_calidad.yml@template  # Template reference
+      - script: |
+          echo "##vso[task.setvariable variable=DOTNET_STARTUP_ASSEMBLY]$(MSBuildProjectName).dll"
+        displayName: 'Set DOTNET_STARTUP_ASSEMBLY'
+
+  - stage: prd
+    condition: |
+      or(
+        startsWith(variables['build.sourceBranch'], 'refs/heads/bugfix'),
+        eq(variables['build.sourceBranch'], 'refs/heads/main'),
+        in(variables['System.PullRequest.TargetBranch'], 'refs/heads/main')
+      )  
+    jobs:
+    - job: Linux
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+      - template: templates/build_NETCORE-6_v1.yml@template  # Template reference
+      - template: templates/prueba_prd.yml@template  # Template reference
+      - script: |
+          echo "##vso[task.setvariable variable=DOTNET_STARTUP_ASSEMBLY]$(MSBuildProjectName).dll"
+        displayName: 'Set DOTNET_STARTUP_ASSEMBLY'

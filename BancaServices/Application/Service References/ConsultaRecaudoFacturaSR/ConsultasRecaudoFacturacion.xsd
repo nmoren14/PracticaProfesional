@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.integrator.com/" targetNamespace="http://ws.integrator.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ListarPrestamosResponse" type="tns:ListarPrestamosResponse" />
+  <xs:element name="RequestCuentasPorCobrar" nillable="true" type="tns:requestCuentasPorCobrar" />
+  <xs:element name="canales" type="tns:canales" />
+  <xs:element name="formatos" type="tns:formatos" />
+  <xs:element name="tiposFormatos" type="tns:tiposFormatos" />
+  <xs:complexType name="requestCuentasPorCobrar">
+    <xs:sequence>
+      <xs:element name="tipoId" type="xs:string" />
+      <xs:element name="mumId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ListarPrestamosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:responseCuentasPorCobrar" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseCuentasPorCobrar">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="cuentas" nillable="true" type="tns:cuentasPorCobrarWSBean" />
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cuentasPorCobrarWSBean">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cuenta" type="tns:cuentasPorCobrar" />
+      <xs:element minOccurs="0" name="descripcionEstado" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cuentasPorCobrar">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="archivosCuentasPorCobrar" type="tns:archivosCuentasPorCobrar" />
+      <xs:element minOccurs="0" name="codBanco" type="xs:string" />
+      <xs:element minOccurs="0" name="codProducto" type="xs:string" />
+      <xs:element minOccurs="0" name="codSucursal" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoCliente" type="xs:string" />
+      <xs:element minOccurs="0" name="cuota" type="xs:int" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="diasMora" type="xs:int" />
+      <xs:element minOccurs="0" name="fechaDesembolso" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaVencimiento" type="xs:dateTime" />
+      <xs:element name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="idCliente" type="xs:string" />
+      <xs:element minOccurs="0" name="idTitularDebitoAuto" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreCompleto" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreTitularDebitoAuto" type="xs:string" />
+      <xs:element minOccurs="0" name="numCuentaDebitoAuto" type="xs:string" />
+      <xs:element minOccurs="0" name="numProducto" type="xs:string" />
+      <xs:element minOccurs="0" name="otrosCargos" type="xs:decimal" />
+      <xs:element minOccurs="0" name="otrosSaldos" type="xs:decimal" />
+      <xs:element minOccurs="0" name="pagoTotal" type="xs:decimal" />
+      <xs:element name="periodicidadPagos" type="xs:int" />
+      <xs:element name="plazo" type="xs:int" />
+      <xs:element minOccurs="0" name="saldoCapital" type="xs:decimal" />
+      <xs:element minOccurs="0" name="saldoIntereses" type="xs:decimal" />
+      <xs:element minOccurs="0" name="saldoInteresesMora" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tasaCuotaCorriente" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tasaMora" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tipoCartera" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoCuentaDebitoAuto" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoIdCliente" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoProducto" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoTasa" type="xs:string" />
+      <xs:element minOccurs="0" name="unidadPlazo" type="xs:string" />
+      <xs:element minOccurs="0" name="valorCuotaCorriente" type="xs:decimal" />
+      <xs:element minOccurs="0" name="valorCuotasVencidas" type="xs:decimal" />
+      <xs:element minOccurs="0" name="valorDebitoAuto" type="xs:decimal" />
+      <xs:element minOccurs="0" name="valorDesembolso" type="xs:decimal" />
+      <xs:element minOccurs="0" name="vencimientoCuota" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="archivosCuentasPorCobrar">
+    <xs:sequence>
+      <xs:element name="archivoGenerado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="convenios" type="tns:convenios" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="cuentasPorCobrars" nillable="true" type="tns:cuentasPorCobrar" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="erroresCuentasPorCobrars" nillable="true" type="tns:erroresCuentasPorCobrar" />
+      <xs:element minOccurs="0" name="id" type="tns:archivosCuentasPorCobrarId" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="convenios">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="archivosCuentasPorCobrars" nillable="true" type="tns:archivosCuentasPorCobrar" />
+      <xs:element minOccurs="0" name="canales" type="tns:canales" />
+      <xs:element minOccurs="0" name="carpetaConexion" type="xs:string" />
+      <xs:element minOccurs="0" name="claveConexion" type="xs:string" />
+      <xs:element minOccurs="0" name="codClienteIbs" type="xs:int" />
+      <xs:element minOccurs="0" name="codTransacionIbs" type="xs:string" />
+      <xs:element minOccurs="0" name="codigo" type="xs:string" />
+      <xs:element minOccurs="0" name="codigosAgrupado" type="xs:string" />
+      <xs:element name="conCiclos" type="xs:boolean" />
+      <xs:element name="convenioCMS" type="xs:boolean" />
+      <xs:element minOccurs="0" name="criteriosIbs" type="xs:string" />
+      <xs:element minOccurs="0" name="cuentaContableAsoc" type="xs:string" />
+      <xs:element name="debitoAutomatico" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="debitoAutomaticos" nillable="true" type="tns:debitoAutomatico" />
+      <xs:element minOccurs="0" name="diaCorte" type="xs:int" />
+      <xs:element minOccurs="0" name="entidades" type="tns:entidades" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="exRegArchivo" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="formatos" type="tns:formatos" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="homoTipoCuentases" nillable="true" type="tns:homoTipoCuentas" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="movHubPagoses" nillable="true" type="tns:movHubPagos" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreClienteIBS" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroConvenioEntidad" type="xs:string" />
+      <xs:element minOccurs="0" name="periodicidad" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="programaFacturacions" nillable="true" type="tns:programaFacturacion" />
+      <xs:element minOccurs="0" name="puertoConexion" type="xs:int" />
+      <xs:element minOccurs="0" name="rutaConexion" type="xs:string" />
+      <xs:element name="tipoConexion" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" name="usuarioConexion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+      <xs:element minOccurs="0" name="vencimiento" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="canales">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="convenioses" nillable="true" type="tns:convenios" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="costosCertificadoses" nillable="true" type="tns:costosCertificados" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="costosCertificados">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="canales" type="tns:canales" />
+      <xs:element minOccurs="0" name="certificados" type="tns:certificados" />
+      <xs:element minOccurs="0" name="costo" type="xs:decimal" />
+      <xs:element name="disponiblesSinCosto" type="xs:short" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="tns:costosCertificadosId" />
+      <xs:element minOccurs="0" name="productosIbs" type="tns:productosIbs" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="certificados">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="costosCertificadoses" nillable="true" type="tns:costosCertificados" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element name="idCertificado" type="xs:short" />
+      <xs:element minOccurs="0" name="nombreCertificado" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreUsuario" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="costosCertificadosId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoProducto" type="xs:string" />
+      <xs:element minOccurs="0" name="idCanales" type="xs:string" />
+      <xs:element name="idCertificado" type="xs:short" />
+      <xs:element minOccurs="0" name="tipo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="productosIbs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="conceptoNomina" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="costosCertificadoses" nillable="true" type="tns:costosCertificados" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="tns:productosIbsId" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="productosIbsId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" type="xs:string" />
+      <xs:element minOccurs="0" name="tipo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debitoAutomatico">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoProductoIbscredito" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoProductoIbsdebito" type="xs:string" />
+      <xs:element minOccurs="0" name="convenios" type="tns:convenios" />
+      <xs:element minOccurs="0" name="cuotas" type="xs:int" />
+      <xs:element name="dia" type="xs:int" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaGeneracionArchivo" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="generadoEnArchivo" type="xs:boolean" />
+      <xs:element name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="idTitularCredito" type="xs:string" />
+      <xs:element minOccurs="0" name="idTitularDebito" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreTitularCredito" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreTitularDebito" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroCuentaCredito" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroCuentaDebito" type="xs:string" />
+      <xs:element minOccurs="0" name="paisTitularCredito" type="xs:string" />
+      <xs:element minOccurs="0" name="paisTitularDebito" type="xs:string" />
+      <xs:element name="productoInternoCredito" type="xs:boolean" />
+      <xs:element name="productoInternoDebito" type="xs:boolean" />
+      <xs:element minOccurs="0" name="referenciaTCO" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoIdTitularCredito" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoIdTitularDebito" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoProductoIbscredito" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoProductoIbsdebito" type="xs:string" />
+      <xs:element minOccurs="0" name="tiposCuentasByCodigoTipoCuentaCredito" type="tns:tiposCuentas" />
+      <xs:element minOccurs="0" name="tiposCuentasByCodigoTipoCuentaDebito" type="tns:tiposCuentas" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioGeneracionArchivo" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+      <xs:element minOccurs="0" name="valor" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tiposCuentas">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoAplicacion" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="entidades">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="bancoAgencias" nillable="true" type="tns:bancoAgencias" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="bancoCuentas" nillable="true" type="tns:bancoCuenta" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="causalesDevolucions" nillable="true" type="tns:causalesDevolucion" />
+      <xs:element minOccurs="0" name="codBancolombia" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoCms" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="confCtaClientes" nillable="true" type="tns:confCtaCliente" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="convenioses" nillable="true" type="tns:convenios" />
+      <xs:element minOccurs="0" name="digitoChequeo" type="xs:string" />
+      <xs:element name="entidadesConvenios" type="xs:boolean" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="tns:entidadesId" />
+      <xs:element minOccurs="0" name="identificacion" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="tiposEntidad" type="tns:tiposEntidad" />
+      <xs:element minOccurs="0" name="transito" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bancoAgencias">
+    <xs:sequence>
+      <xs:element name="centroCostoCredito" type="xs:int" />
+      <xs:element name="centroCostoDebito" type="xs:int" />
+      <xs:element minOccurs="0" name="codCiudadIbs" type="xs:string" />
+      <xs:element minOccurs="0" name="codDepIbs" type="xs:string" />
+      <xs:element name="codigo" type="xs:short" />
+      <xs:element minOccurs="0" name="entidades" type="tns:entidades" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bancoCuenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="agencia" type="xs:string" />
+      <xs:element name="codigo" type="xs:int" />
+      <xs:element minOccurs="0" name="cuentaContableImp" type="xs:string" />
+      <xs:element minOccurs="0" name="cuentaNumero" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="distOrdenPagos" nillable="true" type="tns:distOrdenPago" />
+      <xs:element minOccurs="0" name="entidades" type="tns:entidades" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="formatoChkIbs" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoCuentaOp" type="tns:tipoCuentaOp" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="distOrdenPago">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bancoCuenta" type="tns:bancoCuenta" />
+      <xs:element minOccurs="0" name="codigoBeneficiarioIbs" type="xs:string" />
+      <xs:element name="codigoOrden" type="xs:long" />
+      <xs:element minOccurs="0" name="codigoProductoIbs" type="xs:string" />
+      <xs:element minOccurs="0" name="conceptoCredito" type="xs:string" />
+      <xs:element minOccurs="0" name="conceptoDebito" type="xs:string" />
+      <xs:element minOccurs="0" name="confCtaCliente" type="tns:confCtaCliente" />
+      <xs:element minOccurs="0" name="cuentaCliente" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="estadoOrden" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="homoTipoId" type="tns:homoTipoId" />
+      <xs:element name="idBeneficiario" type="xs:long" />
+      <xs:element minOccurs="0" name="nombreBeneficiario" type="xs:string" />
+      <xs:element minOccurs="0" name="paisBeneficiario" type="xs:string" />
+      <xs:element minOccurs="0" name="regOrdenPago" type="tns:regOrdenPago" />
+      <xs:element name="secuencia" type="xs:int" />
+      <xs:element name="tpoBeneficiario" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" name="tpoTransaccion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+      <xs:element minOccurs="0" name="valor" type="xs:decimal" />
+      <xs:element minOccurs="0" name="viaPago" type="tns:viaPago" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="confCtaCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cuentaNumero" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="distOrdenPagos" nillable="true" type="tns:distOrdenPago" />
+      <xs:element minOccurs="0" name="entidades" type="tns:entidades" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element name="idConfctaCliente" type="xs:int" />
+      <xs:element minOccurs="0" name="tipoCuentaOp" type="tns:tipoCuentaOp" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoCuentaOp">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="bancoCuenta" nillable="true" type="tns:bancoCuenta" />
+      <xs:element name="codigo" type="xs:short" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="confCtaClientes" nillable="true" type="tns:confCtaCliente" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="homoTipoId">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:short" />
+      <xs:element name="codigoCms" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" name="codigoIbs" type="xs:string" />
+      <xs:element name="codigoSig" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="distOrdenPagos" nillable="true" type="tns:distOrdenPago" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="regOrdenPagos" nillable="true" type="tns:regOrdenPago" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="regOrdenPago">
+    <xs:sequence>
+      <xs:element name="codigoClienteIbs" type="xs:int" />
+      <xs:element minOccurs="0" name="codigoEntidad" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoLote" type="xs:string" />
+      <xs:element name="codigoRegistro" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="distOrdenPagos" nillable="true" type="tns:distOrdenPago" />
+      <xs:element minOccurs="0" name="estadoOrden" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element name="fechaDist" type="xs:int" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaPago" type="xs:int" />
+      <xs:element minOccurs="0" name="homoTipoId" type="tns:homoTipoId" />
+      <xs:element name="identificacion" type="xs:long" />
+      <xs:element minOccurs="0" name="nmrObligacion" type="xs:string" />
+      <xs:element minOccurs="0" name="nmrPrdCms" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreEntidad" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreTerceroIbs" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreTipoEntidad" type="xs:string" />
+      <xs:element minOccurs="0" name="paisIbs" type="xs:string" />
+      <xs:element minOccurs="0" name="sistema" type="xs:string" />
+      <xs:element name="tipoEntidad" type="xs:short" />
+      <xs:element minOccurs="0" name="tipoTarjeta" type="xs:string" />
+      <xs:element name="tipoTerceroIbs" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" name="tipoTransaccion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+      <xs:element minOccurs="0" name="valorOrden" type="xs:decimal" />
+      <xs:element minOccurs="0" name="valorPago" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="viaPago">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tipoTransaccionIbs" nillable="true" type="tns:tipoTransaccionIbs" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoTransaccionIbs">
+    <xs:sequence>
+      <xs:element name="cambioBeneficiario" type="xs:boolean" />
+      <xs:element minOccurs="0" name="codigoTipoTransaccionIbs" type="xs:string" />
+      <xs:element minOccurs="0" name="conceptoCredito" type="xs:string" />
+      <xs:element minOccurs="0" name="conceptoDebito" type="xs:string" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element name="idTipoTransaccionIbs" type="xs:short" />
+      <xs:element minOccurs="0" name="tipoTransaccionOp" type="tns:tipoTransaccionOp" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+      <xs:element minOccurs="0" name="viaPago" type="tns:viaPago" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoTransaccionOp">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:short" />
+      <xs:element minOccurs="0" name="codigoExterno" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="sistemaExterno" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tipoTransaccionIbs" nillable="true" type="tns:tipoTransaccionIbs" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="causalesDevolucion">
+    <xs:sequence>
+      <xs:element name="causalExito" type="xs:boolean" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="entidades" type="tns:entidades" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="tns:causalesDevolucionId" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="causalesDevolucionId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoDevolucion" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoEntidad" type="xs:string" />
+      <xs:element name="tipoEntidadCodigo" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="entidadesId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" type="xs:string" />
+      <xs:element name="tipoEntidadCodigo" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tiposEntidad">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:short" />
+      <xs:element minOccurs="0" name="codigoTipoEntidad" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="entidadeses" nillable="true" type="tns:entidades" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="formatos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="convenioses" nillable="true" type="tns:convenios" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="tiposFormatos" type="tns:tiposFormatos" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tiposFormatos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" type="xs:string" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="formatoses" nillable="true" type="tns:formatos" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+      <xs:element name="via" type="xs:unsignedShort" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="homoTipoCuentas">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="convenios" type="tns:convenios" />
+      <xs:element minOccurs="0" name="homologo" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="tns:homoTipoCuentasId" />
+      <xs:element minOccurs="0" name="tiposCuentas" type="tns:tiposCuentas" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="homoTipoCuentasId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoConvenio" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoTipoCuenta" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="movHubPagos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="convenios" type="tns:convenios" />
+      <xs:element minOccurs="0" name="fechaCargue" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaProcesado" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="tns:movHubPagosId" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="movHubPagosDets" nillable="true" type="tns:movHubPagosDet" />
+      <xs:element name="procesado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="totalRegistros" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioCargue" type="xs:string" />
+      <xs:element minOccurs="0" name="valorTotalRecaudo" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="movHubPagosId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoConvenio" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaArchivo" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="nombreArchivo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="movHubPagosDet">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="archivoGenerado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="codigoDevolucion" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoEntidad" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoRetorno1" type="xs:string" />
+      <xs:element minOccurs="0" name="cuentaExterna" type="xs:string" />
+      <xs:element minOccurs="0" name="descRetorno1" type="xs:string" />
+      <xs:element name="estadoAplicacionIbs" type="xs:boolean" />
+      <xs:element name="estadoDevolucion" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaAprobacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaCargue" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaProcesado" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaRecaudo" type="xs:dateTime" />
+      <xs:element name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="medioDePago" type="xs:string" />
+      <xs:element minOccurs="0" name="movHubPagos" type="tns:movHubPagos" />
+      <xs:element minOccurs="0" name="numeroProducto" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroTransacion" type="xs:string" />
+      <xs:element minOccurs="0" name="obsAprobacion" type="xs:string" />
+      <xs:element minOccurs="0" name="obsCargue" type="xs:string" />
+      <xs:element name="procesado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="sistemaDestino" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoEntidadCodigo" type="xs:short" />
+      <xs:element minOccurs="0" name="trama" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioAprobacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioCargue" type="xs:string" />
+      <xs:element minOccurs="0" name="valor" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="programaFacturacion">
+    <xs:sequence>
+      <xs:element name="ciclo" type="xs:int" />
+      <xs:element minOccurs="0" name="convenios" type="tns:convenios" />
+      <xs:element name="ejecutado" type="xs:boolean" />
+      <xs:element name="estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="tns:programaFacturacionId" />
+      <xs:element minOccurs="0" name="usuarioCreacion" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioModificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="programaFacturacionId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoConvenio" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaProgramada" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="erroresCuentasPorCobrar">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="archivosCuentasPorCobrar" type="tns:archivosCuentasPorCobrar" />
+      <xs:element minOccurs="0" name="codigoError" type="xs:string" />
+      <xs:element minOccurs="0" name="error" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="tns:erroresCuentasPorCobrarId" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="erroresCuentasPorCobrarId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoConvenio" type="xs:string" />
+      <xs:element minOccurs="0" name="fecha" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="numProducto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="archivosCuentasPorCobrarId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoConvenio" type="xs:string" />
+      <xs:element minOccurs="0" name="fecha" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

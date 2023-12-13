@@ -1,0 +1,510 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: $(ServiceName)-gateway
+  namespace: $(oc_project)
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - hosts:
+        - $(ServiceName)-$(ambient_prefix).$(oc_domain_apps)
+      port:
+        name: https-443
+        number: 443
+        protocol: HTTPS
+      tls:
+        credentialName: kong-dev-credential
+        mode: SIMPLE
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: $(ServiceName)
+  namespace: $(oc_project)
+spec:
+  gateways:
+    - $(ServiceName)-gateway
+  hosts:
+    - $(ServiceName)-$(ambient_prefix).$(oc_domain_apps)
+  http:
+    - route:
+        - destination:
+            host: $(ServiceName)
+            port:
+              number: $(ServicePort)
+---
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: $(ServiceName)
+  namespace: $(oc_project)
+spec:
+  host: $(ServiceName).$(oc_project).svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+---
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-service-cms
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.36.11
+  hosts:
+    - service-cms
+  ports:
+    - name: http-cms
+      number: 10010
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-estado-transferencia-cms
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.50.185
+  hosts:
+    - estado-transferencia-cms
+  ports:
+    - name: http-estado-transferencia
+      number: 8082
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-transferencia
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.50.185
+  hosts:
+    - transferencia
+  ports:
+    - name: http-transferencia
+      number: 8082
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-cuenta-corriente
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.50.185
+  hosts:
+    - cuenta-corriente
+  ports:
+    - name: http-cuenta-corriente
+      number: 8082
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-desembolso-cms
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.36.11
+  hosts:
+    - desembolso-cms
+  ports:
+    - name: http-desembolso
+      number: 10010
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-cashin
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.50.185
+  hosts:
+    - cashin
+  ports:
+    - name: http-cashin
+      number: 8082
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-cashout
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.50.185
+  hosts:
+    - cashout
+  ports:
+    - name: http-cashout
+      number: 8082
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-consulta-prestamo-dido
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.36.15
+  hosts:
+    - dido
+  ports:
+    - name: http-dido-8082
+      number: 8082
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-pago-prestamos
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.50.185
+  hosts:
+    - pago-prestamos
+  ports:
+    - name: http-pago-prestamos
+      number: 8082
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-datos-basicos
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.50.185
+  hosts:
+    - datos-basicos
+  ports:
+    - name: http-datos-basicos
+      number: 8082
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-envio-sms
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 186.80.45.40
+  hosts:
+    - app.serfinansa.com.co
+  ports:
+    - name: https-envio-sms
+      number: 443
+      protocol: HTTPS
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-activacion-ctah
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.50.185
+  hosts:
+    - activacion-ctah
+  ports:
+    - name: http-activacion-ctah
+      number: 8082
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-consulta-cliente-dido
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.36.15
+  hosts:
+    - dido
+  ports:
+    - name: http-consulta-cliente-dido
+      number: 8082
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-desembolso-param
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.36.11
+  hosts:
+    - desembolso-param
+  ports:
+    - name: http-desembolso-param
+      number: 10010
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-ahorro-service
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.50.185
+  hosts:
+    - ahorro-service
+  ports:
+    - name: http-ahorro-service
+      number: 8082
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-genesys-estado-transfer
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.36.15
+  hosts:
+    - dido
+  ports:
+    - name: http-genesys-estado-transfer
+      number: 8082
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-certificado-pazsalvo
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 172.16.0.82
+  hosts:
+    - certificado-pazsalvo
+  ports:
+    - name: http-cert-pazsalvo
+      number: 80
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-convenio-consulta-inscripcion
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.36.15
+  hosts:
+    - dido
+  ports:
+    - name: http-convenio-consulta-inscripcion
+      number: 8082
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-convenio-consulta-saldo
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.36.15
+  hosts:
+    - dido
+  ports:
+    - name: http-convenio-consulta-saldo
+      number: 8082
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-transaction-code-trncode
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.50.166
+  hosts:
+    - transaction-code-trncode
+  ports:
+    - name: http-transaction-code-trncode
+      number: 8083
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-cashout-new
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.50.166
+  hosts:
+    - cashout-new
+  ports:
+    - name: http-cashout-new
+      number: 8084
+      protocol: HTTP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-consultar-cuenta-inscrita
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.36.15
+  hosts:
+    - dido
+  ports:
+    - name: http-consultar-cuenta-inscrita
+      number: 8082
+      protocol: HTTP
+
+--- 
+#Bases de datos
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-fact-db
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.36.11
+  hosts:
+    - fact
+  location: MESH_EXTERNAL
+  ports:
+    - name: tcp-sql
+      number: 1433
+      protocol: TCP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-setcyfiles-db
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 172.16.81.51
+  hosts:
+    - setcyfiles
+  location: MESH_EXTERNAL
+  ports:
+    - name: tcp-setcyfiles
+      number: 8471
+      protocol: TCP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-sefyles-db
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.20.19
+  hosts:
+    - sefyles
+  location: MESH_EXTERNAL
+  ports:
+    - name: tcp-sql
+      number: 1433
+      protocol: TCP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-banca-services-logs
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.50.69
+  hosts:
+    - bancaserviceslogsentities
+  location: MESH_EXTERNAL
+  ports:
+    - name: tcp-sql
+      number: 1433
+      protocol: TCP
+
+---
+
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: se-integradorcontext-db
+  namespace: $(oc_project)
+spec:
+  addresses:
+    - 10.231.20.202
+  hosts:
+    - integradorcontext
+  location: MESH_EXTERNAL
+  ports:
+    - name: tcp-sql
+      number: 1433
+      protocol: TCP
+

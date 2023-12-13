@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.integrator.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="ConsultarSaldoCuentas" targetNamespace="http://ws.integrator.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://10.231.20.117:8083/Genesys/ConsultarSaldoCuentas?xsd=1" namespace="http://ws.integrator.com/" />
+    </xsd:schema>
+  </types>
+  <message name="consultarSaldoCtaByNroCuenta">
+    <part name="idCliente" type="xsd:string" />
+    <part name="tipoId" type="xsd:string" />
+    <part name="nroCuenta" type="xsd:string" />
+    <part name="codProducto" type="xsd:string" />
+  </message>
+  <message name="consultarSaldoCtaByNroCuentaResponse">
+    <part name="return" type="tns:responseConsultaSaldosCuentasBean" />
+  </message>
+  <message name="consultarSaldoCta">
+    <part name="idCliente" type="xsd:string" />
+    <part name="tipoId" type="xsd:string" />
+    <part name="codProducto" type="xsd:string" />
+  </message>
+  <message name="consultarSaldoCtaResponse">
+    <part name="return" type="tns:responseConsultaMultSaldosCuentasBean" />
+  </message>
+  <message name="consultarSaldosCTAH">
+    <part name="idCliente" type="xsd:string" />
+  </message>
+  <message name="consultarSaldosCTAHResponse">
+    <part name="return" type="tns:responseConsultaSaldoCTAHBean" />
+  </message>
+  <portType name="ConsultarSaldoCuentas">
+    <operation name="consultarSaldoCtaByNroCuenta" parameterOrder="idCliente tipoId nroCuenta codProducto">
+      <input wsam:Action="http://ws.integrator.com/ConsultarSaldoCuentas/consultarSaldoCtaByNroCuentaRequest" message="tns:consultarSaldoCtaByNroCuenta" />
+      <output wsam:Action="http://ws.integrator.com/ConsultarSaldoCuentas/consultarSaldoCtaByNroCuentaResponse" message="tns:consultarSaldoCtaByNroCuentaResponse" />
+    </operation>
+    <operation name="consultarSaldoCta" parameterOrder="idCliente tipoId codProducto">
+      <input wsam:Action="http://ws.integrator.com/ConsultarSaldoCuentas/consultarSaldoCtaRequest" message="tns:consultarSaldoCta" />
+      <output wsam:Action="http://ws.integrator.com/ConsultarSaldoCuentas/consultarSaldoCtaResponse" message="tns:consultarSaldoCtaResponse" />
+    </operation>
+    <operation name="consultarSaldosCTAH">
+      <input wsam:Action="http://ws.integrator.com/ConsultarSaldoCuentas/consultarSaldosCTAHRequest" message="tns:consultarSaldosCTAH" />
+      <output wsam:Action="http://ws.integrator.com/ConsultarSaldoCuentas/consultarSaldosCTAHResponse" message="tns:consultarSaldosCTAHResponse" />
+    </operation>
+  </portType>
+  <binding name="ConsultarSaldoCuentasPortBinding" type="tns:ConsultarSaldoCuentas">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="consultarSaldoCtaByNroCuenta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.integrator.com/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.integrator.com/" />
+      </output>
+    </operation>
+    <operation name="consultarSaldoCta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.integrator.com/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.integrator.com/" />
+      </output>
+    </operation>
+    <operation name="consultarSaldosCTAH">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.integrator.com/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.integrator.com/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ConsultarSaldoCuentas">
+    <port name="ConsultarSaldoCuentasPort" binding="tns:ConsultarSaldoCuentasPortBinding">
+      <soap:address location="http://10.231.20.117:8083/Genesys/ConsultarSaldoCuentas" />
+    </port>
+  </service>
+</definitions>

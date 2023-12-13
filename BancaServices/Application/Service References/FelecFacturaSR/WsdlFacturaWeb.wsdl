@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.consulta.computec.com/" name="WsdlFacturaWeb" targetNamespace="http://ws.consulta.computec.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types />
+  <message name="enviarMailDocumentoResponse">
+    <part name="enviado" type="xsd:string" />
+  </message>
+  <message name="enviarMailDocumento">
+    <part name="llaveConsulta" type="xsd:string" />
+    <part name="fechaInicial" type="xsd:string" />
+    <part name="fechaFinal" type="xsd:string" />
+    <part name="parametrosAdicionales" type="xsd:string" />
+    <part name="formatoConsulta" type="xsd:string" />
+    <part name="usuarioRemoto" type="xsd:string" />
+    <part name="cliente" type="xsd:string" />
+    <part name="producto" type="xsd:string" />
+    <part name="mailPara" type="xsd:string" />
+    <part name="mailCC" type="xsd:string" />
+  </message>
+  <message name="obtenerDocumentoResponse">
+    <part name="documento1" type="xsd:base64Binary" />
+  </message>
+  <message name="obtenerDocumento">
+    <part name="llaveConsulta" type="xsd:string" />
+    <part name="fechaInicial" type="xsd:string" />
+    <part name="fechaFinal" type="xsd:string" />
+    <part name="parametrosAdicionales" type="xsd:string" />
+    <part name="formatoConsulta" type="xsd:string" />
+    <part name="usuarioRemoto" type="xsd:string" />
+    <part name="cliente" type="xsd:string" />
+    <part name="producto" type="xsd:string" />
+  </message>
+  <message name="consultarDocumentosResponse">
+    <part name="resultado" type="xsd:string" />
+  </message>
+  <message name="enviarMailDocumentoIdResponse">
+    <part name="enviado" type="xsd:string" />
+  </message>
+  <message name="consultarDocumentos">
+    <part name="llaveConsulta" type="xsd:string" />
+    <part name="fechaInicial" type="xsd:string" />
+    <part name="fechaFinal" type="xsd:string" />
+    <part name="parametrosAdicionales" type="xsd:string" />
+    <part name="formatoConsulta" type="xsd:string" />
+    <part name="usuarioRemoto" type="xsd:string" />
+    <part name="cliente" type="xsd:string" />
+    <part name="producto" type="xsd:string" />
+  </message>
+  <message name="enviarMailDocumentoId">
+    <part name="llaveConsulta" type="xsd:string" />
+    <part name="fechaInicial" type="xsd:string" />
+    <part name="fechaFinal" type="xsd:string" />
+    <part name="docId" type="xsd:string" />
+    <part name="parametrosAdicionales" type="xsd:string" />
+    <part name="formatoConsulta" type="xsd:string" />
+    <part name="usuarioRemoto" type="xsd:string" />
+    <part name="cliente" type="xsd:string" />
+    <part name="producto" type="xsd:string" />
+    <part name="mailPara" type="xsd:string" />
+    <part name="mailCC" type="xsd:string" />
+  </message>
+  <message name="obtenerDocumentoIdResponse">
+    <part name="documento2" type="xsd:base64Binary" />
+  </message>
+  <message name="obtenerDocumentoId">
+    <part name="llaveConsulta" type="xsd:string" />
+    <part name="fechaInicial" type="xsd:string" />
+    <part name="fechaFinal" type="xsd:string" />
+    <part name="docId" type="xsd:string" />
+    <part name="parametrosAdicionales" type="xsd:string" />
+    <part name="formatoConsulta" type="xsd:string" />
+    <part name="usuarioRemoto" type="xsd:string" />
+    <part name="cliente" type="xsd:string" />
+    <part name="producto" type="xsd:string" />
+    <part name="folder" type="xsd:string" />
+  </message>
+  <portType name="WsdlFacturaWebPortType">
+    <operation name="consultarDocumentos" parameterOrder="llaveConsulta fechaInicial fechaFinal parametrosAdicionales formatoConsulta usuarioRemoto cliente producto">
+      <input message="tns:consultarDocumentos" />
+      <output message="tns:consultarDocumentosResponse" />
+    </operation>
+    <operation name="obtenerDocumento" parameterOrder="llaveConsulta fechaInicial fechaFinal parametrosAdicionales formatoConsulta usuarioRemoto cliente producto">
+      <input message="tns:obtenerDocumento" />
+      <output message="tns:obtenerDocumentoResponse" />
+    </operation>
+    <operation name="obtenerDocumentoId" parameterOrder="llaveConsulta fechaInicial fechaFinal docId parametrosAdicionales formatoConsulta usuarioRemoto cliente producto folder">
+      <input message="tns:obtenerDocumentoId" />
+      <output message="tns:obtenerDocumentoIdResponse" />
+    </operation>
+    <operation name="enviarMailDocumento" parameterOrder="llaveConsulta fechaInicial fechaFinal parametrosAdicionales formatoConsulta usuarioRemoto cliente producto mailPara mailCC">
+      <input message="tns:enviarMailDocumento" />
+      <output message="tns:enviarMailDocumentoResponse" />
+    </operation>
+    <operation name="enviarMailDocumentoId" parameterOrder="llaveConsulta fechaInicial fechaFinal docId parametrosAdicionales formatoConsulta usuarioRemoto cliente producto mailPara mailCC">
+      <input message="tns:enviarMailDocumentoId" />
+      <output message="tns:enviarMailDocumentoIdResponse" />
+    </operation>
+  </portType>
+  <binding name="WsdlFacturaWebPortTypeBinding" type="tns:WsdlFacturaWebPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="consultarDocumentos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.consulta.computec.com/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.consulta.computec.com/" />
+      </output>
+    </operation>
+    <operation name="obtenerDocumento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.consulta.computec.com/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.consulta.computec.com/" />
+      </output>
+    </operation>
+    <operation name="obtenerDocumentoId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.consulta.computec.com/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.consulta.computec.com/" />
+      </output>
+    </operation>
+    <operation name="enviarMailDocumento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.consulta.computec.com/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.consulta.computec.com/" />
+      </output>
+    </operation>
+    <operation name="enviarMailDocumentoId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://ws.consulta.computec.com/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.consulta.computec.com/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="WsdlFacturaWeb">
+    <port name="WsdlFacturaWebPortType" binding="tns:WsdlFacturaWebPortTypeBinding">
+      <soap:address location="https://172.24.13.74:9444/WSFelecRPC/WsdlFacturaWeb" />
+    </port>
+  </service>
+</definitions>

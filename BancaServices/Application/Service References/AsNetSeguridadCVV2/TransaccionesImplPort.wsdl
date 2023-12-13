@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:intf="http://transacciones.services.ws.asnetla.com/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://dto.transacciones.services.ws.asnetla.com/" xmlns:impl="http://transacciones.services.ws.asnetla.com/" targetNamespace="http://transacciones.services.ws.asnetla.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://dto.transacciones.services.ws.asnetla.com/">
+      <xsd:complexType name="TransaccionAPPDTO">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="codigoAplicacion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="codigoProcesamiento" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="fechaTransaccion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="horaTransaccion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="fechaEfectiva" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="codigoCanal" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="codigoSwitch" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="codigoDispositivo" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="consecutivo" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="tipoTransaccion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="codigoEntidad" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="userId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="passwordId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numeroTarjeta" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numeroDocumento" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="tipoDocumento" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="fechaVencimientoTarjeta" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="valorCVV2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="valorTransaccion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numeroCuotas" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="estado" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="pinblockActual" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="pinblockNuevo" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="filler1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="filler2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="filler3" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TransaccionAPPResponseDto">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns1:TransaccionAPPDTO">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" maxOccurs="1" name="numeroAutorizacion" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="codigoRespuesta" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="descripcionRespuesta" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="consecutivoRespuesta" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="fillerRespuesta1" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="fillerRespuesta2" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="fillerRespuesta3" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="aplicarTransaccionRequest">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="aplicarTransaccionRequest" type="tns1:TransaccionAPPDTO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="aplicarTransaccionRequest" type="tns1:aplicarTransaccionRequest" />
+      <xsd:complexType name="aplicarTransaccionResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="aplicarTransaccionResponse" type="tns1:TransaccionAPPResponseDto" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="aplicarTransaccionResponse" type="tns1:aplicarTransaccionResponse" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AplicarTransaccionResponse">
+    <wsdl:part name="aplicarTransaccionResponse" element="tns1:aplicarTransaccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AplicarTransaccionRequest">
+    <wsdl:part name="aplicarTransaccionRequest" element="tns1:aplicarTransaccionRequest" />
+  </wsdl:message>
+  <wsdl:portType name="TransaccionesProxy">
+    <wsdl:operation name="AplicarTransaccion" parameterOrder="aplicarTransaccionRequest">
+      <wsdl:input name="AplicarTransaccionRequest" message="impl:AplicarTransaccionRequest" />
+      <wsdl:output name="AplicarTransaccionResponse" message="impl:AplicarTransaccionResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TransaccionesImplPortSoapBinding" type="impl:TransaccionesProxy">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AplicarTransaccion">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="AplicarTransaccionRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AplicarTransaccionResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TransaccionesImplService">
+    <wsdl:port name="TransaccionesImplPort" binding="impl:TransaccionesImplPortSoapBinding">
+      <wsdlsoap:address location="http://10.231.50.10:8080/BPOWSuiteWS/services/TransaccionesImplPort" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

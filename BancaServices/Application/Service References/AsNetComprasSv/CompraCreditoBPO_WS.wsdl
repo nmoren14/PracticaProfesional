@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:intf="http://wsdl.rbm.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://schema.rbm.com" xmlns:impl="http://wsdl.rbm.com" targetNamespace="http://wsdl.rbm.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://wsdl.rbm.com">
+      <xsd:import namespace="http://schema.rbm.com" />
+      <xsd:element name="compraCarteraLinea">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="usrId" type="xsd:string" />
+            <xsd:element name="usrPsw" type="xsd:string" />
+            <xsd:element name="requestDto" type="tns1:CompraCarteraRequest_Dto" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="compraCarteraLineaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="compraCarteraLineaReturn" type="tns1:CompraCreditoResponse_Dto" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="anularCompraCarteraLinea">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="usrId" type="xsd:string" />
+            <xsd:element name="usrPsw" type="xsd:string" />
+            <xsd:element name="requestDto" type="tns1:CompraCarteraRequest_Dto" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="anularCompraCarteraLineaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="anularCompraCarteraLineaReturn" type="tns1:CompraCreditoResponse_Dto" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="compraCreditoLinea">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="usrId" type="xsd:string" />
+            <xsd:element name="usrPsw" type="xsd:string" />
+            <xsd:element name="requestDto" type="tns1:CompraCreditoRequest_Dto" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="compraCreditoLineaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="compraCreditoLineaReturn" type="tns1:CompraCreditoResponse_Dto" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="anularCompraCreditoLinea">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="usrId" type="xsd:string" />
+            <xsd:element name="usrPsw" type="xsd:string" />
+            <xsd:element name="requestDto" type="tns1:CompraCreditoRequest_Dto" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="anularCompraCreditoLineaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="anularCompraCreditoLineaReturn" type="tns1:CompraCreditoResponse_Dto" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://schema.rbm.com">
+      <xsd:complexType name="CompraCarteraRequest_Dto">
+        <xsd:sequence>
+          <xsd:element name="canalNovedad" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoCanal" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoCentroTUYA" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoDispositivo" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoEntidad" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoEstablecimiento" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoSwitch" nillable="true" type="xsd:string" />
+          <xsd:element name="fechaNovedad" nillable="true" type="xsd:string" />
+          <xsd:element name="horaNovedad" nillable="true" type="xsd:string" />
+          <xsd:element name="modoEntradaPOS" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroAutorizacion" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroCuotas" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroReferencia" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroTarjeta" nillable="true" type="xsd:string" />
+          <xsd:element name="terminalNovedad" nillable="true" type="xsd:string" />
+          <xsd:element name="tipoProducto" nillable="true" type="xsd:string" />
+          <xsd:element name="valorDevolucion" nillable="true" type="xsd:string" />
+          <xsd:element name="valorIVA" nillable="true" type="xsd:string" />
+          <xsd:element name="valorTransaccion" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CompraCreditoResponse_Dto">
+        <xsd:sequence>
+          <xsd:element name="codigoRespuesta" nillable="true" type="xsd:string" />
+          <xsd:element name="cupoDisponible" nillable="true" type="xsd:string" />
+          <xsd:element name="cupoTotal" nillable="true" type="xsd:string" />
+          <xsd:element name="descripcionRespuesta" nillable="true" type="xsd:string" />
+          <xsd:element name="fechaAutorizacion" nillable="true" type="xsd:string" />
+          <xsd:element name="horaAutorizacion" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroAutorizacion" nillable="true" type="xsd:string" />
+          <xsd:element name="valorComision" nillable="true" type="xsd:string" />
+          <xsd:element name="valorIVAComision" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CompraCreditoRequest_Dto">
+        <xsd:sequence>
+          <xsd:element name="canalNovedad" nillable="true" type="xsd:string" />
+          <xsd:element name="codConvenio" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoCanal" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoCentroTUYA" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoDispositivo" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoEntidad" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoEstablecimiento" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoMCC" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoSwitch" nillable="true" type="xsd:string" />
+          <xsd:element name="codigoTransaccion" nillable="true" type="xsd:string" />
+          <xsd:element name="cvc2" nillable="true" type="xsd:string" />
+          <xsd:element name="descripcionOperacion" nillable="true" type="xsd:string" />
+          <xsd:element name="descuentoTransaccion" nillable="true" type="xsd:string" />
+          <xsd:element name="fechaNovedad" nillable="true" type="xsd:string" />
+          <xsd:element name="fechaVencimiento" nillable="true" type="xsd:string" />
+          <xsd:element name="filler1Track" nillable="true" type="xsd:string" />
+          <xsd:element name="filler2Track" nillable="true" type="xsd:string" />
+          <xsd:element name="horaNovedad" nillable="true" type="xsd:string" />
+          <xsd:element name="modoEntradaPOS" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroAutorizacion" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroCuotas" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroReferencia" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroTarjeta" nillable="true" type="xsd:string" />
+          <xsd:element name="origenTransaccion" nillable="true" type="xsd:string" />
+          <xsd:element name="pinblock" nillable="true" type="xsd:string" />
+          <xsd:element name="terminalNovedad" nillable="true" type="xsd:string" />
+          <xsd:element name="tipoProducto" nillable="true" type="xsd:string" />
+          <xsd:element name="valorDevolucion" nillable="true" type="xsd:string" />
+          <xsd:element name="valorIVA" nillable="true" type="xsd:string" />
+          <xsd:element name="valorPropina" nillable="true" type="xsd:string" />
+          <xsd:element name="valorTransaccion" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="compraCreditoLineaResponse">
+    <wsdl:part name="parameters" element="impl:compraCreditoLineaResponse" />
+  </wsdl:message>
+  <wsdl:message name="compraCreditoLineaRequest">
+    <wsdl:part name="parameters" element="impl:compraCreditoLinea" />
+  </wsdl:message>
+  <wsdl:message name="compraCarteraLineaResponse">
+    <wsdl:part name="parameters" element="impl:compraCarteraLineaResponse" />
+  </wsdl:message>
+  <wsdl:message name="compraCarteraLineaRequest">
+    <wsdl:part name="parameters" element="impl:compraCarteraLinea" />
+  </wsdl:message>
+  <wsdl:message name="anularCompraCarteraLineaResponse">
+    <wsdl:part name="parameters" element="impl:anularCompraCarteraLineaResponse" />
+  </wsdl:message>
+  <wsdl:message name="anularCompraCreditoLineaRequest">
+    <wsdl:part name="parameters" element="impl:anularCompraCreditoLinea" />
+  </wsdl:message>
+  <wsdl:message name="anularCompraCreditoLineaResponse">
+    <wsdl:part name="parameters" element="impl:anularCompraCreditoLineaResponse" />
+  </wsdl:message>
+  <wsdl:message name="anularCompraCarteraLineaRequest">
+    <wsdl:part name="parameters" element="impl:anularCompraCarteraLinea" />
+  </wsdl:message>
+  <wsdl:portType name="CompraCreditoBPO_WS">
+    <wsdl:operation name="compraCarteraLinea">
+      <wsdl:input name="compraCarteraLineaRequest" message="impl:compraCarteraLineaRequest" />
+      <wsdl:output name="compraCarteraLineaResponse" message="impl:compraCarteraLineaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="anularCompraCarteraLinea">
+      <wsdl:input name="anularCompraCarteraLineaRequest" message="impl:anularCompraCarteraLineaRequest" />
+      <wsdl:output name="anularCompraCarteraLineaResponse" message="impl:anularCompraCarteraLineaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="compraCreditoLinea">
+      <wsdl:input name="compraCreditoLineaRequest" message="impl:compraCreditoLineaRequest" />
+      <wsdl:output name="compraCreditoLineaResponse" message="impl:compraCreditoLineaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="anularCompraCreditoLinea">
+      <wsdl:input name="anularCompraCreditoLineaRequest" message="impl:anularCompraCreditoLineaRequest" />
+      <wsdl:output name="anularCompraCreditoLineaResponse" message="impl:anularCompraCreditoLineaResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CompraCreditoBPO_WSSoapBinding" type="impl:CompraCreditoBPO_WS">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="compraCarteraLinea">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="compraCarteraLineaRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="compraCarteraLineaResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="anularCompraCarteraLinea">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="anularCompraCarteraLineaRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="anularCompraCarteraLineaResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="compraCreditoLinea">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="compraCreditoLineaRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="compraCreditoLineaResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="anularCompraCreditoLinea">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="anularCompraCreditoLineaRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="anularCompraCreditoLineaResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CompraCreditoBPO_WSService">
+    <wsdl:port name="CompraCreditoBPO_WS" binding="impl:CompraCreditoBPO_WSSoapBinding">
+      <wsdlsoap:address location="http://10.231.50.10:8080/BPOWSuiteWS/services/CompraCreditoBPO_WS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

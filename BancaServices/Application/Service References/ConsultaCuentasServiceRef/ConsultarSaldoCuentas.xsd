@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.integrator.com/" targetNamespace="http://ws.integrator.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="consultaSaldoCCIVRBean" type="tns:consultaSaldoCCIVRBean" />
+  <xs:element name="consultaSaldoIVRBean" type="tns:consultaSaldoIVRBean" />
+  <xs:element name="responseConsultaMultSaldosCuentasBean" type="tns:responseConsultaMultSaldosCuentasBean" />
+  <xs:element name="responseConsultaSaldoCTAHBean" type="tns:responseConsultaSaldoCTAHBean" />
+  <xs:element name="responseConsultaSaldosCuentasBean" type="tns:responseConsultaSaldosCuentasBean" />
+  <xs:complexType name="responseConsultaMultSaldosCuentasBean">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="cuentas" type="tns:consultaSaldoIVRBean" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="cuentasC" type="tns:consultaSaldoCCIVRBean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="consultaSaldoIVRBean">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+      <xs:element minOccurs="0" name="idCliente" type="xs:string" />
+      <xs:element minOccurs="0" name="nroCuenta" type="xs:string" />
+      <xs:element minOccurs="0" name="saldoCanje" type="xs:string" />
+      <xs:element minOccurs="0" name="saldoDisp" type="xs:string" />
+      <xs:element minOccurs="0" name="saldoMin" type="xs:string" />
+      <xs:element minOccurs="0" name="saldoNeto" type="xs:string" />
+      <xs:element minOccurs="0" name="saldoRetenido" type="xs:string" />
+      <xs:element minOccurs="0" name="saldoTotal" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="consultaSaldoCCIVRBean">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:consultaSaldoIVRBean">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dispSobregiro" type="xs:string" />
+          <xs:element minOccurs="0" name="limiteSobregiro" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="responseConsultaSaldoCTAHBean">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="cuentas" type="tns:beanConsultaSaldoCTAH" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="beanConsultaSaldoCTAH">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idCliente" type="xs:string" />
+      <xs:element minOccurs="0" name="referencia" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroCuenta" type="xs:string" />
+      <xs:element minOccurs="0" name="saldo" type="xs:string" />
+      <xs:element minOccurs="0" name="saldoRetenido" type="xs:string" />
+      <xs:element minOccurs="0" name="saldoCanje" type="xs:string" />
+      <xs:element minOccurs="0" name="saldoTotal" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaEmision" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+      <xs:element minOccurs="0" name="codProducto" type="xs:string" />
+      <xs:element minOccurs="0" name="nomProducto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseConsultaSaldosCuentasBean">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" type="xs:string" />
+      <xs:element minOccurs="0" name="cuenta" type="tns:consultaSaldoIVRBean" />
+      <xs:element minOccurs="0" name="cuentaC" type="tns:consultaSaldoCCIVRBean" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

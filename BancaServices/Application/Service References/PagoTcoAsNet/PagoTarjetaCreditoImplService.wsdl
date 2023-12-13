@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:intf="http://services.ws.asnetla.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://dto.services.ws.asnetla.com" xmlns:impl="http://services.ws.asnetla.com" targetNamespace="http://services.ws.asnetla.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://services.ws.asnetla.com">
+      <xsd:import namespace="http://dto.services.ws.asnetla.com" />
+      <xsd:element name="getPagoTarjetaCredito">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request_p" type="tns1:RequestPagoTarjetaCreditoDTO" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPagoTarjetaCreditoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getPagoTarjetaCreditoReturn" type="tns1:ResponsePagoTarjetaCreditoDTO" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://dto.services.ws.asnetla.com">
+      <xsd:complexType name="RequestPagoTarjetaCreditoDTO">
+        <xsd:sequence>
+          <xsd:element name="fechaNovedad" nillable="true" type="xsd:string" />
+          <xsd:element name="horaNovedad" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroIdentificacion" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroTarjeta" nillable="true" type="xsd:string" />
+          <xsd:element name="tipoProducto" nillable="true" type="xsd:string" />
+          <xsd:element name="valorPago" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponsePagoTarjetaCreditoDTO">
+        <xsd:sequence>
+          <xsd:element name="codigoRespuesta" nillable="true" type="xsd:string" />
+          <xsd:element name="descripcionRespuesta" nillable="true" type="xsd:string" />
+          <xsd:element name="fechaAutorizacion" nillable="true" type="xsd:string" />
+          <xsd:element name="horaAutorizacion" nillable="true" type="xsd:string" />
+          <xsd:element name="numeroAutorizacion" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getPagoTarjetaCreditoRequest">
+    <wsdl:part name="parameters" element="impl:getPagoTarjetaCredito" />
+  </wsdl:message>
+  <wsdl:message name="getPagoTarjetaCreditoResponse">
+    <wsdl:part name="parameters" element="impl:getPagoTarjetaCreditoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PagoTarjetaCreditoImplService">
+    <wsdl:operation name="getPagoTarjetaCredito">
+      <wsdl:input name="getPagoTarjetaCreditoRequest" message="impl:getPagoTarjetaCreditoRequest" />
+      <wsdl:output name="getPagoTarjetaCreditoResponse" message="impl:getPagoTarjetaCreditoResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PagoTarjetaCreditoImplServiceSoapBinding" type="impl:PagoTarjetaCreditoImplService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPagoTarjetaCredito">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getPagoTarjetaCreditoRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPagoTarjetaCreditoResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PagoTarjetaCreditoImplServiceService">
+    <wsdl:port name="PagoTarjetaCreditoImplService" binding="impl:PagoTarjetaCreditoImplServiceSoapBinding">
+      <wsdlsoap:address location="http://10.231.50.10:8080/BPOWSuiteWS/services/PagoTarjetaCreditoImplService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

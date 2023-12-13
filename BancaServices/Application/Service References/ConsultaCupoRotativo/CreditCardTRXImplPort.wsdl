@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:intf="http://services.serfinansa.ws.asnetla.com/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://services.serfinansa.ws.asnetla.com/" targetNamespace="http://services.serfinansa.ws.asnetla.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.serfinansa.ws.asnetla.com/">
+      <xsd:complexType name="creditCardTRXRequestProcessingDTO">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="usrId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="usrPsw" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="codigoCanal" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="codigoEntidad" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="codigoAplicacion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="codigoTransaccion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="codigoTerminal" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="codigoEstablecimiento" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="fechaTransaccion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="horaTransaccion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="fechaEfectivaTransaccion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="codigoSwitch" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="dispositivo" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numeroAuditoria" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="consecutivo" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="tipoTransaccion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="nomUbicPOSAdqu" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TRACKII" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numeroTarjeta" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="tipoDocumento" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numeroDocumento" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="producto" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="subtipo" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="valorTransaccion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numeroCuotas" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="filler" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="creditCardTRXRequest">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="creditCardTRXRequestProcessing" type="impl:creditCardTRXRequestProcessingDTO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="creditCardTRXRequest" type="impl:creditCardTRXRequest" />
+      <xsd:complexType name="tarjetasDTO">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="numeroTarjeta" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="estadoTarjeta" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="saldoDisponible" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="cupoTotal" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="subtipo" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="creditCardTRXResponseProcessingDTO">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="numeroAutorizacion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="codigoRespuesta" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descripcion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="nombreTarjetaHabiente" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numeroTarjetas" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="tipoIdentificacion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numeroIdentificacion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numeroCuenta" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="estadoCuenta" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="saldoDisponible" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="subtipo" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="filler" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="infoTarjetas" nillable="true" type="impl:tarjetasDTO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="creditCardTRXResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="return" nillable="true" type="impl:creditCardTRXResponseProcessingDTO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="creditCardTRXResponse" type="impl:creditCardTRXResponse" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="executeProcessingResponse">
+    <wsdl:part name="creditCardTRXResponse" element="impl:creditCardTRXResponse" />
+  </wsdl:message>
+  <wsdl:message name="executeProcessingRequest">
+    <wsdl:part name="creditCardTRXRequest" element="impl:creditCardTRXRequest" />
+  </wsdl:message>
+  <wsdl:portType name="CreditCardTRXI">
+    <wsdl:operation name="executeProcessing" parameterOrder="creditCardTRXRequest">
+      <wsdl:input name="executeProcessingRequest" message="impl:executeProcessingRequest" />
+      <wsdl:output name="executeProcessingResponse" message="impl:executeProcessingResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CreditCardTRXImplPortSoapBinding" type="impl:CreditCardTRXI">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="executeProcessing">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="executeProcessingRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="executeProcessingResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CreditCardTRXImplService">
+    <wsdl:port name="CreditCardTRXImplPort" binding="impl:CreditCardTRXImplPortSoapBinding">
+      <wsdlsoap:address location="http://10.231.50.10:8080/BPOWSuiteWS/services/CreditCardTRXImplPort" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
